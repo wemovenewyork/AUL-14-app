@@ -135,6 +135,48 @@ h1,h2,h3,h4,h5,h6{font-family:'Cinzel',serif;line-height:1.2;font-weight:600}
 @media(max-width:1100px){.nav__links,.nav__cta{display:none}.nav__burger{display:flex}}
 
 /* ============================================================
+   DROPDOWN NAV
+   ============================================================ */
+.nav__dropdown{position:relative}
+.nav__dropdown-toggle{background:none;border:none;cursor:pointer;font-size:13px;font-weight:500;color:rgba(255,255,255,.75);letter-spacing:0.3px;padding:4px 0;display:flex;align-items:center;gap:5px;font-family:'DM Sans',sans-serif;transition:color .2s}
+.nav__dropdown-toggle:hover,.nav__dropdown.open .nav__dropdown-toggle{color:var(--gold)}
+.nav-chevron{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5;transition:transform .2s;flex-shrink:0}
+.nav__dropdown.open .nav__dropdown-toggle .nav-chevron{transform:rotate(180deg)}
+.nav__dropdown-menu{position:absolute;top:calc(100% + 14px);left:0;min-width:230px;background:rgba(8,14,34,.98);backdrop-filter:blur(16px);border:1px solid rgba(200,168,78,.15);border-radius:10px;padding:8px 0;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s,visibility .2s,transform .2s;z-index:200;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.nav__dropdown.open .nav__dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.nav__dropdown-menu>a{display:block;padding:9px 18px;font-size:13px;color:rgba(255,255,255,.75);white-space:nowrap;transition:color .15s,background .15s;text-decoration:none}
+.nav__dropdown-menu>a:hover{color:var(--gold);background:rgba(200,168,78,.07)}
+.nav__dropdown-divider{height:1px;background:rgba(200,168,78,.1);margin:6px 0}
+.nav__badge-private{display:inline-block;font-size:9px;font-weight:700;color:var(--gold);border:1px solid rgba(200,168,78,.4);padding:1px 5px;border-radius:3px;letter-spacing:.5px;margin-left:4px;opacity:.8;vertical-align:middle}
+/* Level 2 submenu */
+.nav__submenu{position:relative}
+.nav__submenu-toggle{background:none;border:none;cursor:pointer;width:100%;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:8px;font-family:'DM Sans',sans-serif;padding:9px 18px;font-size:13px;color:rgba(255,255,255,.75);white-space:nowrap;transition:color .15s,background .15s}
+.nav__submenu-toggle:hover,.nav__submenu.open .nav__submenu-toggle{color:var(--gold);background:rgba(200,168,78,.07)}
+.nav-chevron-r{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5;flex-shrink:0;transition:transform .2s}
+.nav__submenu.open .nav__submenu-toggle .nav-chevron-r{transform:rotate(90deg)}
+.nav__submenu-menu{position:absolute;top:0;left:100%;min-width:250px;background:rgba(8,14,34,.98);backdrop-filter:blur(16px);border:1px solid rgba(200,168,78,.15);border-radius:10px;padding:8px 0;opacity:0;visibility:hidden;transform:translateX(-8px);transition:opacity .2s,visibility .2s,transform .2s;z-index:201;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.nav__submenu.open .nav__submenu-menu{opacity:1;visibility:visible;transform:translateX(0)}
+.nav__submenu-menu>a{display:block;padding:9px 18px;font-size:13px;color:rgba(255,255,255,.75);white-space:nowrap;transition:color .15s,background .15s;text-decoration:none}
+.nav__submenu-menu>a:hover{color:var(--gold);background:rgba(200,168,78,.07)}
+/* Level 3 sub-submenu */
+.nav__subsubmenu{position:relative}
+.nav__subsubmenu-toggle{background:none;border:none;cursor:pointer;width:100%;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:8px;font-family:'DM Sans',sans-serif;padding:9px 18px;font-size:13px;color:rgba(255,255,255,.75);white-space:nowrap;transition:color .15s,background .15s}
+.nav__subsubmenu-toggle:hover,.nav__subsubmenu.open .nav__subsubmenu-toggle{color:var(--gold);background:rgba(200,168,78,.07)}
+.nav__subsubmenu.open .nav__subsubmenu-toggle .nav-chevron-r{transform:rotate(90deg)}
+.nav__subsubmenu-menu{position:absolute;top:0;left:100%;min-width:230px;background:rgba(8,14,34,.98);backdrop-filter:blur(16px);border:1px solid rgba(200,168,78,.15);border-radius:10px;padding:8px 0;opacity:0;visibility:hidden;transform:translateX(-8px);transition:opacity .2s,visibility .2s,transform .2s;z-index:202;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.nav__subsubmenu.open .nav__subsubmenu-menu{opacity:1;visibility:visible;transform:translateX(0)}
+.nav__subsubmenu-menu>a{display:block;padding:9px 18px;font-size:13px;color:rgba(255,255,255,.75);white-space:nowrap;transition:color .15s,background .15s;text-decoration:none}
+.nav__subsubmenu-menu>a:hover{color:var(--gold);background:rgba(200,168,78,.07)}
+/* Mobile nav accordions */
+.nav__mobile-group{width:100%;text-align:center}
+.nav__mobile-group-title{font-family:'Cinzel',serif;font-size:18px;color:var(--white);letter-spacing:2px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;background:none;border:none;padding:4px 0}
+.nav__mobile-group-title:hover{color:var(--gold)}
+.nav__mobile-children{display:none;flex-direction:column;gap:10px;margin-top:10px;align-items:center}
+.nav__mobile-children.open{display:flex}
+.nav__mobile-children a{font-family:'Cormorant Garamond',serif;font-size:15px;color:rgba(255,255,255,.65);letter-spacing:1px}
+.nav__mobile-children a:hover{color:var(--gold)}
+
+/* ============================================================
    HERO
    ============================================================ */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:var(--navy)}
@@ -567,16 +609,93 @@ h1,h2,h3,h4,h5,h6{font-family:'Cinzel',serif;line-height:1.2;font-weight:600}
       </span>
     </a>
     <div class="nav__links">
-      <a href="#about">About</a>
-      <a href="#services">Programs</a>
-      <a href="#petition">Membership</a>
-      <a href="#leadership">Officers</a>
-      <a href="#pastmasters">Past Masters</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#events">Events</a>
-      <a href="#news">News</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
+      <a href="#hero">Home</a>
+
+      <div class="nav__dropdown" id="dd-about">
+        <button class="nav__dropdown-toggle" onclick="toggleNav('dd-about',event)">About <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="nav__dropdown-menu">
+          <a href="#about">History</a>
+        </div>
+      </div>
+
+      <div class="nav__dropdown" id="dd-officers">
+        <button class="nav__dropdown-toggle" onclick="toggleNav('dd-officers',event)">Officers <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="nav__dropdown-menu">
+          <a href="#leadership">Current Officers</a>
+          <a href="#">Trestleboard</a>
+          <a href="#">From the East, West &amp; South</a>
+        </div>
+      </div>
+
+      <div class="nav__dropdown" id="dd-events">
+        <button class="nav__dropdown-toggle" onclick="toggleNav('dd-events',event)">Events <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="nav__dropdown-menu">
+          <a href="#events">Upcoming Events</a>
+          <a href="#">Past Events</a>
+        </div>
+      </div>
+
+      <div class="nav__dropdown" id="dd-lodge">
+        <button class="nav__dropdown-toggle" onclick="toggleNav('dd-lodge',event)">Lodge <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="nav__dropdown-menu">
+          <a href="#events">Calendar</a>
+          <div class="nav__dropdown-divider"></div>
+          <div class="nav__submenu" id="sm-secretary">
+            <button class="nav__submenu-toggle" onclick="toggleSubmenu('sm-secretary',event)">Secretary's Desk <svg class="nav-chevron-r" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+            <div class="nav__submenu-menu">
+              <div class="nav__subsubmenu" id="ssm-admin">
+                <button class="nav__subsubmenu-toggle" onclick="toggleSubsubmenu('ssm-admin',event)"><span>Administrative Archives <span class="nav__badge-private">PRIVATE</span></span> <svg class="nav-chevron-r" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+                <div class="nav__subsubmenu-menu">
+                  <a href="#">Meeting Minutes &amp; Reports</a>
+                  <a href="#">Trestleboards (Past Editions)</a>
+                </div>
+              </div>
+              <div class="nav__subsubmenu" id="ssm-historical">
+                <button class="nav__subsubmenu-toggle" onclick="toggleSubsubmenu('ssm-historical',event)"><span>Historical Archives <span class="nav__badge-private">PRIVATE</span></span> <svg class="nav-chevron-r" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+                <div class="nav__subsubmenu-menu">
+                  <a href="#">Past Masters Records</a>
+                  <a href="#">Historical Documents</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nav__dropdown-divider"></div>
+          <a href="#pastmasters">Past Masters</a>
+          <a href="#">Called From Labor</a>
+          <div class="nav__dropdown-divider"></div>
+          <div class="nav__submenu" id="sm-archives">
+            <button class="nav__submenu-toggle" onclick="toggleSubmenu('sm-archives',event)">Archives <svg class="nav-chevron-r" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+            <div class="nav__submenu-menu">
+              <a href="#gallery">Photo Archives</a>
+              <a href="#">Event Programs &amp; Flyers</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav__dropdown" id="dd-media">
+        <button class="nav__dropdown-toggle" onclick="toggleNav('dd-media',event)">Media <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="nav__dropdown-menu">
+          <a href="#gallery">Gallery</a>
+          <a href="the-beehive-feb-2026.pdf" target="_blank">The Beehive (Newsletter)</a>
+          <a href="#news">News</a>
+          <a href="#">Merchandise</a>
+        </div>
+      </div>
+
+      <div class="nav__dropdown" id="dd-resources">
+        <button class="nav__dropdown-toggle" onclick="toggleNav('dd-resources',event)">Resources <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="nav__dropdown-menu">
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+
+      <div class="nav__dropdown" id="dd-contact">
+        <button class="nav__dropdown-toggle" onclick="toggleNav('dd-contact',event)">Contact <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="nav__dropdown-menu">
+          <a href="#contact">Contact Us</a>
+        </div>
+      </div>
     </div>
     <div class="nav__right">
       <div class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" role="button" tabindex="0">
@@ -591,16 +710,49 @@ h1,h2,h3,h4,h5,h6{font-family:'Cinzel',serif;line-height:1.2;font-weight:600}
   </div>
 </nav>
 <div class="nav__mobile" id="navMobile" role="dialog" aria-label="Mobile navigation">
-  <a href="#about" onclick="closeMobile()">About</a>
-  <a href="#services" onclick="closeMobile()">Programs</a>
-  <a href="#petition" onclick="closeMobile()">Membership</a>
-  <a href="#leadership" onclick="closeMobile()">Officers</a>
-  <a href="#pastmasters" onclick="closeMobile()">Past Masters</a>
-  <a href="#gallery" onclick="closeMobile()">Gallery</a>
-  <a href="#events" onclick="closeMobile()">Events</a>
-  <a href="#news" onclick="closeMobile()">News</a>
-  <a href="#faq" onclick="closeMobile()">FAQ</a>
-  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="#hero" onclick="closeMobile()">Home</a>
+  <div class="nav__mobile-group">
+    <button class="nav__mobile-group-title" onclick="toggleMobileGroup(this)">About <svg style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+    <div class="nav__mobile-children"><a href="#about" onclick="closeMobile()">History</a></div>
+  </div>
+  <div class="nav__mobile-group">
+    <button class="nav__mobile-group-title" onclick="toggleMobileGroup(this)">Officers <svg style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+    <div class="nav__mobile-children">
+      <a href="#leadership" onclick="closeMobile()">Current Officers</a>
+      <a href="#" onclick="closeMobile()">Trestleboard</a>
+      <a href="#" onclick="closeMobile()">From the East, West &amp; South</a>
+    </div>
+  </div>
+  <div class="nav__mobile-group">
+    <button class="nav__mobile-group-title" onclick="toggleMobileGroup(this)">Events <svg style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+    <div class="nav__mobile-children">
+      <a href="#events" onclick="closeMobile()">Upcoming Events</a>
+      <a href="#" onclick="closeMobile()">Past Events</a>
+    </div>
+  </div>
+  <div class="nav__mobile-group">
+    <button class="nav__mobile-group-title" onclick="toggleMobileGroup(this)">Lodge <svg style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+    <div class="nav__mobile-children">
+      <a href="#events" onclick="closeMobile()">Calendar</a>
+      <a href="#" onclick="closeMobile()">Secretary's Desk</a>
+      <a href="#pastmasters" onclick="closeMobile()">Past Masters</a>
+      <a href="#" onclick="closeMobile()">Called From Labor</a>
+      <a href="#gallery" onclick="closeMobile()">Photo Archives</a>
+      <a href="#" onclick="closeMobile()">Event Programs &amp; Flyers</a>
+    </div>
+  </div>
+  <div class="nav__mobile-group">
+    <button class="nav__mobile-group-title" onclick="toggleMobileGroup(this)">Media <svg style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+    <div class="nav__mobile-children">
+      <a href="#gallery" onclick="closeMobile()">Gallery</a>
+      <a href="the-beehive-feb-2026.pdf" target="_blank" onclick="closeMobile()">The Beehive (Newsletter)</a>
+      <a href="#news" onclick="closeMobile()">News</a>
+      <a href="#" onclick="closeMobile()">Merchandise</a>
+    </div>
+  </div>
+  <a href="#faq" onclick="closeMobile()">Resources / FAQ</a>
+  <a href="#contact" onclick="closeMobile()">Contact Us</a>
+  <a href="#petition" onclick="closeMobile()" style="margin-top:8px;padding:12px 32px;background:var(--gold);color:var(--navy);border-radius:var(--radius);font-weight:700;font-size:14px">Become a Mason</a>
 </div>
 
 <main id="main">
@@ -981,10 +1133,18 @@ window.addEventListener('scroll',()=>{
 });
 btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
+// === DROPDOWN NAV ===
+function closeAllNav(){document.querySelectorAll('.nav__dropdown,.nav__submenu,.nav__subsubmenu').forEach(el=>el.classList.remove('open'))}
+function toggleNav(id,e){e.stopPropagation();const el=document.getElementById(id);const wasOpen=el.classList.contains('open');closeAllNav();if(!wasOpen)el.classList.add('open')}
+function toggleSubmenu(id,e){e.stopPropagation();const el=document.getElementById(id);const wasOpen=el.classList.contains('open');el.closest('.nav__dropdown-menu')?.querySelectorAll('.nav__submenu').forEach(s=>s.classList.remove('open'));el.querySelectorAll('.nav__subsubmenu').forEach(s=>s.classList.remove('open'));if(!wasOpen)el.classList.add('open')}
+function toggleSubsubmenu(id,e){e.stopPropagation();const el=document.getElementById(id);const wasOpen=el.classList.contains('open');el.closest('.nav__submenu-menu')?.querySelectorAll('.nav__subsubmenu').forEach(s=>s.classList.remove('open'));if(!wasOpen)el.classList.add('open')}
+document.addEventListener('click',closeAllNav);
+
 // === MOBILE NAV ===
 const burger=document.getElementById('navBurger'),mobile=document.getElementById('navMobile');
 burger.addEventListener('click',()=>{burger.classList.toggle('active');mobile.classList.toggle('open')});
 function closeMobile(){burger.classList.remove('active');mobile.classList.remove('open')}
+function toggleMobileGroup(btn){btn.nextElementSibling.classList.toggle('open')}
 
 // === DARK MODE ===
 const toggle=document.getElementById('themeToggle');
