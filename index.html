@@ -313,7 +313,8 @@ h1,h2,h3,h4,h5,h6{font-family:'Cinzel',serif;line-height:1.2;font-weight:600}
    LEADERSHIP
    ============================================================ */
 .leadership{background:var(--page-bg)}
-.leadership__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
+.leadership__grid{display:flex;flex-wrap:wrap;gap:24px;margin-top:48px;justify-content:center}
+.leader-card{flex:0 1 300px;min-width:260px;max-width:340px}
 .leader-card{background:var(--card-bg);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:var(--transition);border:1px solid var(--border)}
 .leader-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px)}
 .leader-card__img{aspect-ratio:1;background:linear-gradient(135deg,var(--royal),var(--navy));display:flex;align-items:center;justify-content:center;position:relative}
@@ -322,8 +323,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Cinzel',serif;line-height:1.2;font-weight:600}
 .leader-card__name{font-family:'Cinzel',serif;font-size:15px;color:var(--text-primary);margin-bottom:2px}
 .leader-card__role{font-size:12px;color:var(--gold);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
 .leader-card__text{font-size:13px;color:var(--text-muted);line-height:1.6}
-@media(max-width:900px){.leadership__grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.leadership__grid{grid-template-columns:1fr}}
+@media(max-width:600px){.leader-card{flex:0 1 100%;max-width:100%}}
 
 /* ============================================================
    PAST MASTERS
